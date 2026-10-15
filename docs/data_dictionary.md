@@ -1,10 +1,115 @@
-# Anonymous Channel Dictionary
+# Anonymous channel dictionary
 
-The example schema uses generic channel IDs and broad synthetic groups. No source identifiers, physical units, measurement ranges, raw values, or organization-specific labels are published here.
+This schema lists generic channel identifiers and broad synthetic groups.
+It intentionally contains no source channel identifier, units, measurement ranges, or raw values.
 
-| Identifier pattern | Description |
-|---|---|
-| `channel_NNN` | Anonymous numeric signal channel |
-| `group_NN` | Synthetic grouping used only by the example generator |
-
-A generated per-channel quality summary is written locally when notebook 01 runs. Do not replace it with organization data in a public copy.
+| Channel | Group | Description |
+|---|---|---|
+| channel_001 | group_01 | Signal |
+| channel_002 | group_01 | Signal |
+| channel_003 | group_01 | Signal |
+| channel_004 | group_01 | Signal |
+| channel_005 | group_01 | Signal |
+| channel_006 | group_01 | Signal |
+| channel_007 | group_01 | Signal |
+| channel_008 | group_02 | Signal |
+| channel_009 | group_02 | Signal |
+| channel_010 | group_02 | Signal |
+| channel_011 | group_02 | Signal |
+| channel_012 | group_02 | Signal |
+| channel_013 | group_02 | Signal |
+| channel_014 | group_02 | Signal |
+| channel_015 | group_02 | Signal |
+| channel_016 | group_02 | Signal |
+| channel_017 | group_02 | Signal |
+| channel_018 | group_02 | Signal |
+| channel_019 | group_02 | Signal |
+| channel_020 | group_02 | Signal |
+| channel_021 | group_02 | Signal |
+| channel_022 | group_02 | Signal |
+| channel_023 | group_02 | Signal |
+| channel_024 | group_02 | Signal |
+| channel_025 | group_02 | Signal |
+| channel_026 | group_02 | Signal |
+| channel_027 | group_02 | Signal |
+| channel_028 | group_02 | Signal |
+| channel_029 | group_02 | Signal |
+| channel_030 | group_02 | Signal |
+| channel_031 | group_02 | Signal |
+| channel_032 | group_02 | Signal |
+| channel_033 | group_02 | Signal |
+| channel_034 | group_02 | Signal |
+| channel_035 | group_02 | Signal |
+| channel_036 | group_02 | Signal |
+| channel_037 | group_02 | Signal |
+| channel_038 | group_02 | Signal |
+| channel_039 | group_02 | Signal |
+| channel_040 | group_02 | Signal |
+| channel_041 | group_02 | Signal |
+| channel_042 | group_02 | Signal |
+| channel_043 | group_02 | Signal |
+| channel_044 | group_02 | Signal |
+| channel_045 | group_02 | Signal |
+| channel_046 | group_02 | Signal |
+| channel_047 | group_02 | Signal |
+| channel_048 | group_02 | Signal |
+| channel_049 | group_02 | Signal |
+| channel_050 | group_02 | Signal |
+| channel_051 | group_02 | Signal |
+| channel_052 | group_02 | Signal |
+| channel_053 | group_02 | Signal |
+| channel_054 | group_02 | Signal |
+| channel_055 | group_02 | Signal |
+| channel_056 | group_02 | Signal |
+| channel_057 | group_02 | Signal |
+| channel_058 | group_02 | Signal |
+| channel_059 | group_02 | Signal |
+| channel_060 | group_02 | Signal |
+| channel_061 | group_02 | Signal |
+| channel_062 | group_02 | Signal |
+| channel_063 | group_02 | Signal |
+| channel_064 | group_02 | Signal |
+| channel_065 | group_02 | Signal |
+| channel_066 | group_02 | Signal |
+| channel_067 | group_02 | Signal |
+| channel_068 | group_02 | Signal |
+| channel_069 | group_02 | Signal |
+| channel_070 | group_02 | Signal |
+| channel_071 | group_02 | Signal |
+| channel_072 | group_02 | Signal |
+| channel_073 | group_03 | Signal |
+| channel_074 | group_03 | Signal |
+| channel_075 | group_03 | Signal |
+| channel_076 | group_03 | Signal |
+| channel_077 | group_03 | Signal |
+| channel_078 | group_03 | Signal |
+| channel_079 | group_03 | Signal |
+| channel_080 | group_03 | Signal |
+| channel_081 | group_03 | Signal |
+| channel_082 | group_03 | Signal |
+| channel_083 | group_03 | Signal |
+| channel_084 | group_03 | Signal |
+| channel_085 | group_03 | Signal |
+| channel_086 | group_03 | Signal |
+| channel_087 | group_03 | Signal |
+| channel_088 | group_03 | Signal |
+| channel_089 | group_03 | Signal |
+| channel_090 | group_03 | Signal |
+| channel_091 | group_03 | Signal |
+| channel_092 | group_03 | Signal |
+| channel_093 | group_03 | Signal |
+| channel_094 | group_03 | Signal |
+| channel_095 | group_04 | Signal |
+| channel_096 | group_04 | Signal |
+| channel_097 | group_04 | Signal |
+| channel_098 | group_04 | Signal |
+| channel_099 | group_04 | Signal |
+| channel_100 | group_04 | Signal |
+| channel_101 | group_04 | Signal |
+| channel_102 | group_04 | Signal |
+| channel_103 | group_04 | Signal |
+| channel_104 | group_04 | Signal |
+| channel_105 | group_04 | Signal |
+| channel_106 | group_04 | Signal |
+| channel_107 | group_04 | Signal |
+| channel_108 | group_04 | Signal |

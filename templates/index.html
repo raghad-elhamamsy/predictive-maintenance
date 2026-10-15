@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signal Monitor — asset monitored asset asset</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <div class="brand-name">Signal Monitor</div>
+          <div class="brand-sub">Predictive maintenance</div>
+        </div>
+      </div>
+
+      <nav class="nav" role="navigation">
+        <button class="nav-item is-active" data-view="overview" type="button">
+          <span class="nav-dot"></span>Overview
+        </button>
+        <button class="nav-item" data-view="trends" type="button">
+          <span class="nav-dot"></span>Sensor Trends
+        </button>
+        <button class="nav-item" data-view="warnings" type="button">
+          <span class="nav-dot"></span>Warning History
+        </button>
+        <button class="nav-item" data-view="insights" type="button">
+          <span class="nav-dot"></span>Model Insights
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span class="pill pill-neutral" id="sidebarBadge">LOADING</span>
+        <p id="sidebarNote">Connecting to local historical scoring…</p>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-titles">
+          <h1>Signal Monitor</h1>
+          <p class="equip">asset monitored asset asset</p>
+        </div>
+        <div class="topbar-right">
+          <span class="pill" id="sourceChip" title="Active data source">Loading…</span>
+          <span class="pill pill-neutral" id="topBadge" title="Active data source">LOADING</span>
+          <span class="clock" id="clock" aria-hidden="true"></span>
+          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation">Menu</button>
+        </div>
+      </header>
+
+      <div class="disclaimer" role="note">
+        <strong>Prototype notice.</strong> Signal Monitor is an experimental research prototype.
+        An alarm is a statistical indication only and does <em>not</em> confirm a failure;
+        a quiet result does not rule one out. Supervised predictive performance is
+        <em>not</em> validated, and there is no live system context.
+        <span class="src-line">Active source: <span id="pageSourceLine">…</span></span>
+      </div>
+
+      <main class="content">
+        <!-- ============================ OVERVIEW ============================ -->
+        <section class="view" id="view-overview">
+          <div class="card-grid" id="summaryCards"><!-- rendered by app.js --></div>
+
+          <div class="layout-2col">
+            <section class="panel panel-chart">
+              <div class="panel-head">
+                <div>
+                  <signal>Failure probability</signal>
+                  <p class="muted" id="trendSubtitle">Historical model scores</p>
+                </div>
+                <div class="segmented" id="rangeSelector" role="group" aria-label="Time range">
+                  <button data-range="7" type="button">7D</button>
+                  <button data-range="30" type="button" class="is-active">30D</button>
+                  <button data-range="90" type="button">90D</button>
+                  <button data-range="365" type="button">1Y</button>
+                </div>
+              </div>
+              <div class="chart-wrap" id="probChart"><!-- SVG injected --></div>
+              <p class="panel-notice" id="trendNotice" hidden></p>
+              <div class="legend" id="trendLegend"><!-- rendered by app.js --></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <signal>Alarm periods</signal>
+                  <p class="muted" id="timelineSubtitle">Model-generated episodes</p>
+                </div>
+                <span class="pill pill-neutral" id="overviewBadge">—</span>
+              </div>
+              <ul class="timeline" id="warningTimeline"><!-- rendered by app.js --></ul>
+            </section>
+          </div>
+
+          <div class="layout-2col">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <signal>Recent warning records</signal>
+                  <p class="muted" id="eventsSubtitle">Model alarms</p>
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table class="events" id="recentEvents">
+                  <thead>
+                    <tr><th>Time</th><th>Type</th><th>Signal</th><th>Severity</th><th>Detail</th></tr>
+                  </thead>
+                  <tbody><!-- rendered by app.js --></tbody>
+                </table>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <signal>Status</signal>
+                  <p class="muted" id="statusSubtitle">Data and model availability</p>
+                </div>
+              </div>
+              <ul class="stat-list" id="overviewStatus"><!-- rendered by app.js --></ul>
+            </section>
+          </div>
+        </section>
+
+        <!-- ============================ TRENDS ============================ -->
+        <section class="view" id="view-trends" hidden>
+          <section class="panel panel-chart">
+            <div class="panel-head">
+              <div>
+                <signal>Sensor trends</signal>
+                <p class="muted" id="trendSubtitle2">Scaled sensor history (generic labels)</p>
+              </div>
+              <div class="segmented" id="rangeSelector2" role="group" aria-label="Time range">
+                <button data-range="7" type="button">7D</button>
+                <button data-range="30" type="button" class="is-active">30D</button>
+                <button data-range="90" type="button">90D</button>
+                <button data-range="365" type="button">1Y</button>
+              </div>
+            </div>
+            <div class="chart-wrap tall" id="trendChart2"><!-- SVG injected --></div>
+            <p class="panel-notice" id="trendNotice2" hidden></p>
+            <div class="legend" id="trendLegend2"><!-- rendered by app.js --></div>
+          </section>
+          <div class="layout-2col">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <signal>Window statistics</signal>
+                  <p class="muted" id="traceStatsSubtitle">Min / max over the selected range</p>
+                </div>
+              </div>
+              <ul class="stat-list" id="traceStats"><!-- rendered by app.js --></ul>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><signal>Notes</signal></div>
+              <p class="body-text" id="trendsNotes">
+                These traces are already-scaled core sensors shown under generic labels
+                (Signal 01, Signal 02, …). Real system channel identifier names and raw values are never
+                exposed.
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <!-- ============================ WARNINGS ============================ -->
+        <section class="view" id="view-warnings" hidden>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <signal>Warning history</signal>
+                <p class="muted" id="warningSubtitle">Model-generated alarm episodes</p>
+              </div>
+              <span class="pill pill-neutral" id="warningBadge">—</span>
+            </div>
+            <p class="panel-notice" id="warningDisclaimer" hidden></p>
+            <div class="table-scroll">
+              <table class="events" id="warningTable">
+                <thead>
+                  <tr><th>Episode</th><th>Start</th><th>End</th><th>Days</th><th>Peak probability</th><th>Model</th><th>Type</th></tr>
+                </thead>
+                <tbody><!-- rendered by app.js --></tbody>
+              </table>
+            </div>
+            <p class="panel-notice" id="warningNotice" hidden></p>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><signal>Episode timeline</signal></div>
+            <div class="episode-track" id="episodeTrack"><!-- rendered by app.js --></div>
+            <p class="panel-notice" id="episodeNotice" hidden></p>
+          </section>
+        </section>
+
+        <!-- ============================ INSIGHTS ============================ -->
+        <section class="view" id="view-insights" hidden>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <signal>Scoring model</signal>
+                <p class="muted" id="modelSelectSubtitle">Select the model used for historical scoring</p>
+              </div>
+              <div class="segmented" id="modelSelector" role="group" aria-label="Scoring model"><!-- rendered --></div>
+            </div>
+          </section>
+          <div class="card-grid" id="modelCards"><!-- rendered by app.js --></div>
+          <div class="layout-2col">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <signal>Available metrics</signal>
+                  <p class="muted" id="metricsSubtitle">Aggregate results</p>
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table class="events" id="metricsTable">
+                  <thead><tr><th>Group</th><th>Model</th><th>Metric</th><th>Value</th></tr></thead>
+                  <tbody><!-- rendered by app.js --></tbody>
+                </table>
+              </div>
+              <p class="panel-notice" id="metricsNotice" hidden></p>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><signal>Model status</signal></div>
+              <ul class="stat-list" id="modelStatusList"><!-- rendered by app.js --></ul>
+            </section>
+          </div>
+          <section class="panel">
+            <div class="panel-head"><signal>Limitations</signal></div>
+            <ul class="stat-list" id="limitationsList"><!-- rendered by app.js --></ul>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
